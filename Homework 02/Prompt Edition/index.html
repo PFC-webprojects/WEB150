@@ -1,0 +1,64 @@
+<!doctype html>
+<!--
+
+Homework #2 - Pig Latin
+Prompt Edition
+
+Peter Caliandro
+WEB 150
+Winter 2018
+January 18, 2017
+
+index.html
+
+-->
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Homework #2 - Pig Latin</title>
+
+		<style>
+			div#button {
+				margin: 1em;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<p id="input"></p>
+		<button onclick="promptAndTranslate()">Try Pig Latin!</button>
+		<p id="output"></p>
+	</body>
+
+	<footer>
+		<script src="script.js"></script>
+
+		<script>
+			function promptAndTranslate()
+			/*  Prompt for some English text.  Translate it into Pig Latin.  Print the result on the web page.
+				Reject empty input.  Reject single-character input.  In those cases, give the option to prompt again for corrected innput.
+			*/
+			{
+				var tryAgain = true;
+				while (tryAgain) {
+					var english = prompt("Type some English.  I'll translate it into Pig Latin.");
+					switch (english.length) {
+						case 0:
+							tryAgain = confirm("You didn't enter anything.  I can't translate that.  Do you want to try again?");
+							break;
+						case 1:
+							tryAgain = confirm("You entered only one character.  I can't translate that.  Do you want to try again?");
+							break;
+						default:
+							document.getElementById("input").innerHTML = "\"" + english + "\" in English means";
+							document.getElementById("output").innerHTML = "\"" + processPhrase(english) + "\" in Pig Latin!";
+							tryAgain = false;
+							break;
+					}
+				}
+			}
+		</script>
+	</footer>
+	
+</html>
