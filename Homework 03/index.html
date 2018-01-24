@@ -1,0 +1,121 @@
+<!doctype html>
+<!--
+
+Homework #3 - Making the grade
+
+Peter Caliandro
+WEB 150
+Winter 2018
+January 21, 2017
+
+index.html
+
+-->
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Homework #3 - Making the Grade</title>
+
+		<style>
+			table {
+				margin: 2em 0;
+			}
+			
+			table th[scope="col"] {
+				border-bottom: 1px solid;
+			}
+			table th[scope="row"] {
+				font-weight: normal;
+			}
+		
+			th:nth-child(1),
+			td:nth-child(1) {
+				width: 7em;
+				text-align: left;
+			}
+			th:nth-child(2),
+			td:nth-child(2) {
+				width: 4em;
+				text-align: right;
+			}
+		</style>
+	</head>
+
+	
+	<body>
+		<header>
+			<h1>Homework #3 - Making the Grade</h1>
+		</header>
+	
+		<main>
+			<table id="grades_table"><!--  Table data rows will be created and inserted using JavaScript code.  --></table>
+			<table id="results_table"><!--  Table data rows will be created and inserted using JavaScript code.  --></table>
+		</main>
+		
+		<footer>
+			<script>
+				var studentGrades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";  //  Our input.
+				var studentGradesArray = studentGrades.split(", ");  //  Create the student grades array.
+				studentGradesArray.sort();  //  Alphabetize the student grades array.
+
+				var gradesMax = -Infinity;  //  Will store the maximum grade as the array of student grades is traversed.
+				var gradesMin =  Infinity;  //  Will store the minimum grade as the array of student grades is traversed.
+				var gradesSum =  0;  //  Will accumulate the sum of all grades as the array of student grades is traversed, from which the average grade will be computed.
+
+				/*  Create HTML for header row of student grades table.  */
+				var gradesOutput = '<tr>';
+				gradesOutput	+= '    <th scope="col">Student</th>';
+				gradesOutput	+= '    <th scope="col">Grade</th>';
+				gradesOutput	+= '</tr>';
+
+				/*  Create HTML for data rows of student grades table, traversing the student grades array through a loop.
+					At the same time, track the maximum grade, track the the minimum grade, and accumulate the sum of all grades */
+				for (var i in studentGradesArray) {
+					studentGradesArray[i]	  = studentGradesArray[i].charAt(0).toUpperCase() + studentGradesArray[i].slice(1);  //  Capitalize the student's name.
+					studentGradesArray[i]	  = studentGradesArray[i].split("|");  //  Separate the student's name from his or her grade.
+					studentGradesArray[i][1] = parseInt(studentGradesArray[i][1]);  //  Change the student's grade from a string to an integer.
+
+					gradesMax  =   gradesMax < studentGradesArray[i][1]  ?  studentGradesArray[i][1]  :  gradesMax;
+					gradesMin  =   studentGradesArray[i][1] < gradesMin  ?  studentGradesArray[i][1]  :  gradesMin;
+					gradesSum +=   studentGradesArray[i][1];
+					
+					/*  Create HTML for data row of student grades table.  */
+					gradesOutput += '<tr>';
+					gradesOutput += '    <td>' + studentGradesArray[i][0] + '</td>';
+					gradesOutput += '    <td>' + studentGradesArray[i][1] + '</td>';
+					gradesOutput += '</tr>';
+				}
+				/*  Insert the student grades table rows into their HTML table (which has been hard-coded into the web page).  */
+				document.getElementById("grades_table").innerHTML = gradesOutput;
+
+				/*  Consolidate the summary data compiled from the student grades into a single array.  */
+				resultsArray = [
+					["Students", studentGradesArray.length],
+					["Highest Grade", gradesMax],
+					["Average Grade", (gradesSum / studentGradesArray.length).toFixed(2)],
+					["Lowest Grade", gradesMin]
+					];
+				
+				/*  Create HTML for header row of student grades summary results table.  */
+				var resultsOutput = '<tr>';
+				resultsOutput	 += '<th scope="col">Results</th>';
+				resultsOutput	 += '<th scope="col"></th>';
+				resultsOutput	 += '</tr>';
+
+				/*  Create HTML for data rows of student grades summary results table, traversing the student grades summary results array through a loop.  */
+				for (var i in resultsArray) {
+					resultsOutput += '<tr>';
+					resultsOutput += '<th scope="row">' + resultsArray[i][0] + '</th>';
+					resultsOutput += '<th scope="row">' + resultsArray[i][1] + '</th>';
+					resultsOutput += '</tr>';
+				}
+				/*  Insert the student grades summary results table rows into their HTML table (which has been hard-coded into the web page).  */
+				document.getElementById("results_table").innerHTML = resultsOutput;
+			</script>
+		</footer>
+
+	</body>
+	
+</html>
+
