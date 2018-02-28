@@ -1,0 +1,45 @@
+<!--
+Homework #5 - Robo Dealer
+
+Peter Caliandro
+WEB 150
+Winter 2018
+February 26, 2018
+
+index.html
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Robo Dealer</title>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <link href="css/styles.css" type="text/css" rel="stylesheet" />
+
+        <script>
+            "use strict";  //  Not sure if this affects the rest of the code here . . .
+        </script>       
+        <script src="js/Card.js"></script>
+        <script src="js/Deck.js"></script>
+        <script src="js/Hand.js"></script>
+        <script src="js/dealings.js"></script>
+    </head>
+    
+    <body>
+        <h1>Robo Dealer</h1>
+        
+        <hr />
+        
+        <button onclick="dealPokerHands()">Deal Poker Hands</button>
+        <button onclick="dealBlackjackHands()">Deal Blackjack Hands</button>
+        
+        <hr id="bottom" />
+        
+        <p id="player1"><span class="cards"></span><span class="message">Let's wheel and deal!</span></p>
+        <p id="player2"><span class="cards"></span><span class="message">I'm ready!</span></p>
+    </body>
+</html>
+
