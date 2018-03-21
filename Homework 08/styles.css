@@ -1,0 +1,76 @@
+/*
+
+Homework #8 - Sunny with Chance of Awesome
+
+Peter Caliandro
+WEB 150
+Winter 2018
+March 20, 2018
+
+styles.css
+
+*/
+
+main {
+    padding:                   10px;
+}
+h1 {
+    margin-bottom:             1em;
+}          
+div {          
+    margin:                    1em;
+}          
+table {          
+    border-collapse:           collapse;
+}          
+td {          
+    padding:                   0 7px;
+    border:                    1px dotted;
+}           
+tr#header th {               /*  Part of what enables the diagonal table headings and borders.  */           
+    height:                    124px;
+    white-space:               nowrap;   
+    text-align:                left;
+    border:                    0px;
+}           
+tr#header th > div {         /*  Part of what enables the diagonal table headings and borders.  */
+    transform:                 translate(-6px, 69px) rotate(-45deg);
+    width:                     10px;
+}           
+tr#header th > div > span {  /*  Part of what enables the diagonal table headings and borders.  */   
+    border-top:                1px dotted;
+    width:                     280px;
+    padding:                   5px 30px;       
+}          
+button {          
+    height:                    2em;
+}          
+hr {          
+   margin:                     2em 0 1em 0; 
+}          
+h3 {          
+    margin-bottom:             0px;
+}          
+p {          
+    margin:                    0 0 1em 1em;
+}
+p.warning {
+    color:                     red;
+}
+td.string {      /*  Matches a data type used in script.js.  */
+    text-align:                left;
+}
+td.number {      /*  Matches a data type used in script.js.  */
+    text-align:                right;
+}
+tr.shaded {      /*  Matches a global constant in script.js.  */
+    background-color:          #EEEEEE;
+}
+.daily_high {  /*  Matches a global constant in script.js.  */
+    color:                     darkorange;
+    font-weight:               bold;
+}
+.daily_low {   /*  Matches a global constant in script.js.  */
+    color:                     blue;
+    font-weight:               bold;
+}

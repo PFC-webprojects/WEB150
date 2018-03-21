@@ -1,0 +1,47 @@
+<!--
+
+Homework #8 - Sunny with Chance of Awesome
+
+Peter Caliandro
+WEB 150
+Winter 2018
+March 20, 2018
+
+index.html
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sunny with Chance of Awesome</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="styles.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <main>
+            <form>
+                <h1>Forecast data provided by OpenWeatherMap</h1>
+                <div id="city">
+                    <label for="city_input">City:</label>
+                    <input id="city_input" type="text" autofocus="autofocus" />
+                </div>
+                <div id="system">
+                    Measurement System:
+                    <input type="radio" name="system" id="metric" value="metric" />
+                    <label for="metric">Metric</label>
+                    <input type="radio" name="system" id="uscs" value="uscs" checked="checked" />
+                    <label for="uscs">U.S. Customary</label>
+                </div>
+                <div id="submit">
+                    <button type="submit">Get Weather</button>  <!--  Use of an input element of type submit will cause the page to immediately reload (Unless the default behavior is turned off?), which is not what we want here.  -->
+                </div>
+            </form>
+            <div id="response"></div>
+        </main>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
